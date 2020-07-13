@@ -4,6 +4,38 @@
 
 #### [Video Link](https://www.youtube.com/watch?v=kOIKduAOD5k)
 
+## 1. Introduction
+
+## 2. Motivation
+
+## 3. Data Description
+
+## 4. Data Processing
+
+## 5. Unsupervised Learning
+### 5.1
+### 5.2
+
+## 6.Supervised Learning
+### 6.1
+### 6.2
+
+## 7. Model Evaluation and Data Analysis
+
+### 7.1 Data Analysis
+
+### 7.2 Results (Unsupervised Learning)
+#### 7.2.1
+#### 7.2.2
+
+### 7.3 Results (Supervised Learning)
+#### 7.3.1
+#### 7.3.2
+
+## 8. Conclusion
+
+## 9. References
+
 You can use the [editor on GitHub](https://github.com/sharifulsazib04/CS7641ML.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
