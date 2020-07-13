@@ -6,7 +6,7 @@
 
 ## 1. Introduction
 
-Traffic sign recognition system is an indispensable part of autonomous self-driving car technologyand advanced driver assistance system(ADAS
+Traffic sign recognition system is an indispensable part of autonomous self-driving car technologyand advanced driver assistance system(ADAS). 
 
 ## 2. Motivation
 
