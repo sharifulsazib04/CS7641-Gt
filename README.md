@@ -1,4 +1,6 @@
-## Welcome to GitHub Pages
+# Traffic Sign Recognition from Images
+### Project Group 2
+#### Nujhat Tasneem, Mohammad Adnaan, Daniel P Neelappa, Md. Shariful Islam
 
 You can use the [editor on GitHub](https://github.com/sharifulsazib04/CS7641ML.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
