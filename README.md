@@ -6,35 +6,26 @@
 
 ## 1. Introduction
 
+Traffic sign recognition system is an indispensable part of autonomous self-driving car technologyand advanced driver assistance system(ADAS
+
 ## 2. Motivation
 
 ## 3. Data Description
 
 ## 4. Data Processing
 
-## 5. Unsupervised Learning
-### 5.1
-### 5.2
+## 5.Supervised Learning
+### 5.1 Methods
+### 5.2 Results
 
-## 6.Supervised Learning
-### 6.1
-### 6.2
+## 6. Unsupervised Learning
+### 6.1 Methods 
+### 6.2 Results
 
-## 7. Model Evaluation and Data Analysis
 
-### 7.1 Data Analysis
+## 7. Conclusion
 
-### 7.2 Results (Unsupervised Learning)
-#### 7.2.1
-#### 7.2.2
-
-### 7.3 Results (Supervised Learning)
-#### 7.3.1
-#### 7.3.2
-
-## 8. Conclusion
-
-## 9. References
+## 8. References
 
 You can use the [editor on GitHub](https://github.com/sharifulsazib04/CS7641ML.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
