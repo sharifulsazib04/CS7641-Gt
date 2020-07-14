@@ -43,7 +43,7 @@ Below is an implementation of a fully connected neural network. The image which 
 We also experimented with a single fully connected hidden layer with 512 nodes and a relu activation. In-sample accuracy was 95%, but out of sample accuracy was lower at 75%. With the small accuracy gain by doubling the hidden layers of the model, we decided to move on to using convolutional neural networks.
 
 <p align="center">
-<img src="./Images/Supervised_Learning/hist_train.png" /> <img src="./Images/Supervised_Learning/vanilla_training_accuracy_loss.png" /> <img src="./Images/Supervised_Learning/hist_valid.png"/> 
+<img src="./Images/Supervised_Learning/vanilla_training_accuracy_loss.png" /> 
 </p>
 
 <p align="center">Fig. 3 Training and validation performance </p>
