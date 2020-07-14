@@ -63,7 +63,7 @@ Below are two CNN models. The first uses a double layer CNN network with relu ac
 Both architectures performed very well at generalizing the dataset. The single CNN model was able to obtain a 87% accuracy during training and a 86% accuracy for the test set. The double layer CNN was able to achieve 92% in training and 90% in the testing set. Both of these were significantly better than the fully connected neural network and were able to achieve high accuracy with a limited number of layers.
 
 <p align="center">
-<img src="./Images/Supervised_Learning/single_layer_training_accuracy_loss.png" /> <img src="./Images/Supervised_Learning/double_layer_training_accuracy_loss.png" />
+<img src="./Images/Supervised_Learning/single_layer_cnn_training_accuracy_loss.png" /> <img src="./Images/Supervised_Learning/double_layer_cnn_training_accuracy_loss.png" />
 </p>
 
 <p align="center">Fig. 5 Accuracy and loss plots of single and double layer CNN </p>
