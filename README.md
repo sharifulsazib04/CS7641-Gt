@@ -23,6 +23,8 @@ The images we use for image classification have already been reduced to 32 by 32
 <p align="center">
 <img src="./Images/Supervised_learning/train_children_crossing.png" width = "300" height = "600" alt="train.png"  />
 </p>
+
+<p align="center">Fig. 6 The confusion matrices for Kmeans</p>
 ### 4.2 Results
 
 ## 5. Unsupervised Learning
