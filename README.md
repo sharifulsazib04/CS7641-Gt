@@ -14,6 +14,10 @@ Traffic sign recognition (TSR) system is an indispensable part of autonomous sel
 ## 3. Data Processing
 
 ## 4.Supervised Learning
+
+For our project, we used tensorflow to implement deep learning models to perform image classification in Google Colab. Convolutional Neural Networks (CNN's) are a popular method to perform image classification and can achieve high accuracy for supervised learning.
+We implemented both a vanilla neural network, single layer CNN, and double layer CNN for this project.
+Lastly, we wanted to see how susceptible our model was for changes in the images. For this reason, we added noise to our testing set to examine the models susscesability to changes in the image quality.
 ### 4.1 Methods
 ### 4.2 Results
 
