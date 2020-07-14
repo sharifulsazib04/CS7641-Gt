@@ -78,7 +78,7 @@ The photos below show the accuracy and the visual depiction of several levels of
 <img src="./Images/Supervised_Learning/noise_15.png" /> <img src="./Images/Supervised_Learning/noise_30.png" /> <img src="./Images/Supervised_Learning/noise_60.png" /> <img src="./Images/Supervised_Learning/noise_75.png" />
 </p>
 
-<p align="center">Fig. 6 Photowith noise </p>
+<p align="center">Fig. 6 Photo with noise </p>
 ## 5. Unsupervised Learning
 ### 5.1 Methods 
 ### 5.2 Results
