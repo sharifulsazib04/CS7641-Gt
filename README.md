@@ -35,7 +35,18 @@ As shown in the figures 24, the dataset provided for us have a relatively simila
 </p>
 
 <p align="center">Fig. 2 Distribution of training, test and validation datasets </p>
-### 4.2 Results
+
+### 4.2 Vanilla Fully Connected Neural Network
+
+Below is an implementation of a fully connected neural network. The image which is 32px by 32px is flattened into an array of 1024 values. The network architecture consists of two hidden layers with 512 and 256 nodes each with a relu activation. Since there are 43 class labels and we begin with 1024 values in an image, we need to reduce the dimensionality from 1024 to 43. We decided to halve the number of layer nodes as an arbitrary way to reduce dimensionality. If we had additional time, we could expand the hidden layers of the network to a large number and slowly reduce the dimensionality as long as the accuracy isn't significantly affected. With our current implementation, we were able to achieve 93% in-sample accuracy and a 78% accuracy for out of sample testing.
+
+We also experimented with a single fully connected hidden layer with 512 nodes and a relu activation. In-sample accuracy was 95%, but out of sample accuracy was lower at 75%. With the small accuracy gain by doubling the hidden layers of the model, we decided to move on to using convolutional neural networks.
+
+<p align="center">
+<img src="./Images/Supervised_Learning/hist_train.png" /> <img src="./Images/Supervised_Learning/hist_test.png" /> <img src="./Images/Supervised_Learning/hist_valid.png"/> 
+</p>
+
+<p align="center">Fig. 3 Distribution of training, test and validation datasets </p>
 
 ## 5. Unsupervised Learning
 ### 5.1 Methods 
