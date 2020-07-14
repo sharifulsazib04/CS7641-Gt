@@ -21,7 +21,7 @@ For our project, we used tensorflow to implement deep learning models to perform
 The images we use for image classification have already been reduced to 32 by 32 pixels with the training set preconfigured to 34799 examples and 12630 photos dedicated to the testing segment. A small amount of 4410 images are used as validation for each epoch of training that we perform. The entire datset has 43 unqiue classes of image labels. Here are a few of the representations of images from the dataset in their 32px by 32px representations:
 
 <p align="center">
-<img src="./Images/Supervised_learning/train_children_crossing.png" width = "300" height = "600" alt="train.png"  />
+<img src="./Images/Supervised_Learning/train_children_crossing.png" width = "300" height = "600" alt="train.png"  />
 </p>
 
 <p align="center">Fig. 6 The confusion matrices for Kmeans</p>
