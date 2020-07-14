@@ -40,13 +40,33 @@ As shown in the figures 24, the dataset provided for us have a relatively simila
 
 Below is an implementation of a fully connected neural network. The image which is 32px by 32px is flattened into an array of 1024 values. The network architecture consists of two hidden layers with 512 and 256 nodes each with a relu activation. Since there are 43 class labels and we begin with 1024 values in an image, we need to reduce the dimensionality from 1024 to 43. We decided to halve the number of layer nodes as an arbitrary way to reduce dimensionality. If we had additional time, we could expand the hidden layers of the network to a large number and slowly reduce the dimensionality as long as the accuracy isn't significantly affected. With our current implementation, we were able to achieve 93% in-sample accuracy and a 78% accuracy for out of sample testing.
 
-We also experimented with a single fully connected hidden layer with 512 nodes and a relu activation. In-sample accuracy was 95%, but out of sample accuracy was lower at 75%. With the small accuracy gain by doubling the hidden layers of the model, we decided to move on to using convolutional neural networks.
-
 <p align="center">
 <img src="./Images/Supervised_Learning/vanilla_training_accuracy_loss.png" /> 
 </p>
 
-<p align="center">Fig. 3 Training and validation performance </p>
+<p align="center">Fig. 3 Accuracy and loss plots </p>
+
+We also experimented with a single fully connected hidden layer with 512 nodes and a relu activation. In-sample accuracy was 95%, but out of sample accuracy was lower at 75%. With the small accuracy gain by doubling the hidden layers of the model, we decided to move on to using convolutional neural networks.
+
+<p align="center">
+<img src="./Images/Supervised_Learning/vanilla_training_accuracy_loss_hidden_layer.png" /> 
+</p>
+
+<p align="center">Fig. 4 Accuracy and loss plots of hidden layer</p>
+
+### 4.3 Convolutional Neural Networks (CNN's)
+
+CNN's differ from fully connected neural networks because we do not flatten the image into an array like in a fully connected neural network. CNN's have kernels which are filters that slide over the image capturing features for distinguishing labels. The last layer of a CNN network is a fully connected layer for selecting a given label.
+
+Below are two CNN models. The first uses a double layer CNN network with relu activations. The first CNN has a stride of 1 and a kernel size of 6 by 6. We used a stride of one as we want to have a maximum of overlap with our small images as we slide the kernel. The filter size was slowly incremented from 2 to 7 by 7. A filter size of 6 by 6 was experimentally shown to provide the best accuracy given our other hyperparameters. The 2nd layer was set to a kernel size of 5 by 5. The CNN layer is then flattened with one hidden layer of 200 nodes before the 43 node layer for classification with a softmax activation. We always use a softmax activation as this limits the output from 0 to 1 which can be used to represent probabilities.
+
+Both architectures performed very well at generalizing the dataset. The single CNN model was able to obtain a 87% accuracy during training and a 86% accuracy for the test set. The double layer CNN was able to achieve 92% in training and 90% in the testing set. Both of these were significantly better than the fully connected neural network and were able to achieve high accuracy with a limited number of layers.
+
+<p align="center">
+<img src="./Images/Supervised_Learning/single_layer_training_accuracy_loss.png" /> <img src="./Images/Supervised_Learning/double_layer_training_accuracy_loss.png" />
+</p>
+
+<p align="center">Fig. 5 Accuracy and loss plots of single and double layer CNN </p>
 
 ## 5. Unsupervised Learning
 ### 5.1 Methods 
