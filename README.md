@@ -79,6 +79,7 @@ The photos below show the accuracy and the visual depiction of several levels of
 </p>
 
 <p align="center">Fig. 6 Photo with noise </p>
+
 ## 5. Unsupervised Learning
 ### 5.1 Methods 
 ### 5.2 Results
