@@ -34,7 +34,7 @@ As shown in the figures 24, the dataset provided for us have a relatively simila
 <img src="./Images/Supervised_Learning/hist_train.png" /> <img src="./Images/Supervised_Learning/hist_test.png" /> <img src="./Images/Supervised_Learning/hist_valid.png"/> 
 </p>
 
-<p align="center">Fig. 1 Image Example </p>
+<p align="center">Fig. 2 Distribution of training, test and validation datasets </p>
 ### 4.2 Results
 
 ## 5. Unsupervised Learning
