@@ -68,6 +68,17 @@ Both architectures performed very well at generalizing the dataset. The single C
 
 <p align="center">Fig. 5 Accuracy and loss plots of single and double layer CNN </p>
 
+### 4.4 Noise Addition
+
+Below shows a series of photos with a percentage of noise added to each. 100% noise is an value added to the normalized grayscale image from 0 to 1. A noise percentage is mupltiplied to the random value to scale the max value down from the original 1. We used our highest accuracy model which was the double layer CNN architecture.
+
+The photos below show the accuracy and the visual depiction of several levels of noise percentage. With 15% noise, we can see a clear speed limit sign and the model has a 88% accuracy. At 75% noise, the model can obtain an almost 70% accuracy while the sign is hardly visible to the human eye.
+
+<p align="center">
+<img src="./Images/Supervised_Learning/noise_15.png" /> <img src="./Images/Supervised_Learning/noise_30.png" /> <img src="./Images/Supervised_Learning/noise_60.png" /> <img src="./Images/Supervised_Learning/noise_75.png" />
+</p>
+
+<p align="center">Fig. 6 Photowith noise </p>
 ## 5. Unsupervised Learning
 ### 5.1 Methods 
 ### 5.2 Results
