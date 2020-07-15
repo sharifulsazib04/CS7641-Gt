@@ -6,7 +6,7 @@
 
 ## 1. Introduction
 
-Traffic sign recognition system is an indispensable part of autonomous self-driving car technologyand advanced driver assistance system(ADAS). Different categories of algorithms like histogram oforiented gradients (HOG), scale-invariant feature transform (SIFT), convolutional neural networks(CNN) have been used to enhance the performance of this detection system.  Besides the role of algorithm  used  in  detection,  several  other  practical  case  scenarios  like  weather  condition,  colorfading, disorientation of signs make the task a challenging one.  In our project we have used a standard dataset provided by GTSRB (German traffic sign recognition benchmark)[1] which contains more than 50000 images organized in 43 classes for training purpose and few thousands ofrandomized images to test the performance of detection algorithm.  We have used convoultional neural network (CNN) for supervised learning and for unsupervised learning Kmeans, gaussian mixture model (GMM) along with principal component analysis (PCA) has been used.
+Traffic sign recognition system is an indispensable part of autonomous self-driving car technologyand advanced driver assistance system(ADAS). Different categories of algorithms like histogram oforiented gradients (HOG), scale-invariant feature transform (SIFT), convolutional neural networks(CNN) have been used to enhance the performance of this detection system.  Besides the role of algorithm  used  in  detection,  several  other  practical  case  scenarios  like  weather  condition,  colorfading, disorientation of signs make the task a challenging one.  In our project we have used a standard dataset provided by GTSRB (German traffic sign recognition benchmark)[1] which contains more than 50000 images organized in 43 classes for training purpose and few thousands ofrandomized images to test the performance of detection algorithm.  We have used convoultional neural network (CNN)[2] for supervised learning and for unsupervised learning Kmeans, gaussian mixture model (GMM) along with principal component analysis (PCA) has been used.
 
 ## 2. Data Description
 The images we use for image classification have already been reduced to 32 by 32 pixels with the training set preconfigured to 34799 examples and 12630 photos dedicated to the testing segment. A small amount of 4410 images are used as validation for each epoch of training that we perform. The entire datset has 43 unqiue classes of image labels. Here are a few of the representations of images from the dataset in their 32px by 32px representations:
@@ -96,6 +96,7 @@ Finally, we have made a GUI to facilitate image classification testing. In this 
 ## 7. References
 
 [1] J. Stallkamp, M. Schlipsing, J. Salmen, and C. Igel. The German Traffic Sign Recognition Benchmark: A multi-class classification competition. In Proceedings of the IEEE International Joint Conference on Neural Networks, pages 1453–1460. 2011
+[2] O'Shea, Keiron, and Ryan Nash. "An introduction to convolutional neural networks." arXiv preprint arXiv:1511.08458 (2015).
 
 
 
