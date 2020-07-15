@@ -6,6 +6,12 @@
 
 ## 1. Introduction
 
+<object data="./Images/Supervised_Learning/1.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="./Images/Supervised_Learning/1.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="./Images/Supervised_Learning/1.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
+
 Traffic sign recognition system is an indispensable part of autonomous self-driving car technologyand advanced driver assistance system(ADAS). Different categories of algorithms like histogram oforiented gradients (HOG), scale-invariant feature transform (SIFT), convolutional neural networks(CNN) have been used to enhance the performance of this detection system.  Besides the role of algorithm  used  in  detection,  several  other  practical  case  scenarios  like  weather  condition,  colorfading, disorientation of signs make the task a challenging one.  In our project we have used a standard dataset provided by GTSRB (German traffic sign recognition benchmark)[1] which contains more than 50000 images organized in 43 classes for training purpose and few thousands ofrandomized images to test the performance of detection algorithm.  We have used convoultional neural network (CNN)[2] for supervised learning and for unsupervised learning Kmeans based clustering, gaussian mixture model (GMM) with principal component analysis (PCA) has been used.
 
 ## 2. Data Description
