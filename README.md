@@ -153,13 +153,27 @@ From Fig 12, we can see that, if GMM component number increases, both Silhouette
 Hence, the parameters set for optimal GMM model are: 'full' type covariance with 50 PCA components and component number 35. The Silhouette score in this setting is ~0.07. We also ended up applying the GMM model with 15 components on the dataset since the BIC score was so small but that did not give us a very good result which will be elaborated in the “Results” section.
 
 <p align="center">
-<img src="./Images/Unupervised_Learning/5.6a.png" width="350" height = "350" />  <img src="./Images/Unupervised_Learning/5.6b.png" width="350" height = "4350" /> </p> 
+<img src="./Images/Unupervised_Learning/5.6a.png" width="350" height = "350" />  <img src="./Images/Unupervised_Learning/5.6b.png" width="350" height = "350" /> </p> 
 
 <p align="center">Fig. 13 Evaluation of GMM model by varying # of PCA components </p>
 
 To confirm that the PCA comp was good, at cluster number 35 and 'full' type covariance, the scores were evaluated again by changing the # of PCA components. Fig 13 shows that lower number of PCA components (50 used here) gives better scores. The method was run on the dataset for higher number of PCA components (500) as well, and from inspection, it did not improve the result. Hence for efficiency, lower number of PCA components (50) would be a wise choice.
 
 ### 5.2 Results
+
+#### 5.2.1 KMean Results
+
+The link to the KMeans applied result (43 clusters with PCA) is as follows:
+
+#### [Results](https://gtvault-my.sharepoint.com/:f:/g/personal/ntasneem3_gatech_edu/EpqAuUOQdyNOkM4IkETvlDMBCvGiw4uuyabVzoy8oehb2A?e=ZIoOcs)
+
+Some of the signs were clustered pretty well while others were not. Moat of the signs that are clustered successfully have only a few significant features (signs having only two colors), less details.
+
+<p align="center">
+<img src="./Images/Unupervised_Learning/5.7.png" /> 
+</p>
+
+<p align="center">Fig. 14 Example of good clustering using KMeans </p>
 
 
 ## 6. Conclusion
