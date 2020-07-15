@@ -113,7 +113,7 @@ KMeans was first applied to the set of test images. However, in order to do that
 Elbow method was implemented where KMeans algorithm was applied to the image-set varying the number of clusters, k. At the same time Silhouette score was being measure
 
 <p align="center">
-<img src="./Images/Unupervised_Learning/5.2a.png" /> <img src="./Images/Unupervised_Learning/5.2b.png" />
+<img src="./Images/Unupervised_Learning/5.2a.png" width="400" height = "400" /> <img src="./Images/Unupervised_Learning/5.2b.png"  width="400" height = "400"/>
 </p>
 
 <p align="center">Fig. 9 Elbow method (varying number of clusters) </p>
