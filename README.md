@@ -87,7 +87,23 @@ Finally, we have made a GUI to facilitate image classification testing. In this 
 <p align="center">Fig. 7 GUI for testing </p>
 
 ## 5. Unsupervised Learning
-### 5.1 Methods 
+
+We used only the “Test” images (total 12,620 images) for the unsupervised part of the project since those do not have any label. We used unsupervised learning models to cluster similar images i.e. same traffic signs. Unsupervised approach to this problem is expected to yield very low accuracy [Ref 1]. Hence, this part of the project will mainly be used as a source of providing us more insight about the dataset and the results could be used in supervised learning and classification in the future.
+
+### 5.1 Methods and Analysis
+
+We applied two unsupervised learning models to group similar images. The first one was KMeans clustering technique which assumes circular clustering of data. The second one is known as Gaussian Mixture Models (GMM) that assumes the entire dataset is a linear combination of components modeled as normal distribution. Principal component analysis (PCA) is also utilized for both algorithms to reduce the number of features of the images. Finally, the clustering models are evaluated using commonly known scores or metrics. Python scikit-learn package was used mostly to implement unsupervised learning and scikit-image package was used for image preprocessing.
+
+#### 5.1.1 Image Preprocessing
+
+Images were preprocessed before passing through the models. The images used here have very low resolution, often dark, tilted, blurry and their sizes do not match as well. Each pixel of an image is cosidered as its feature. Images were first resized to 32 by 32 pixels, this way their sizes and feature space became equal. Afterwards, Contrast-limited adaptive histogram equalization (CLAHE) [Ref 2,3] was used to increase the contrast of the images. Finally, the images were cropped to make them more centered and to reduce the effect of the background. However, the cropping dimensions were constant for all images although not all images were captured from the same distance, Hence, images which were too zoomed out, were not cropped properly and sometimes ended up in a different cluster than it was meant to be in.
+
+<p align="center">
+<img src="./Images/Unsupervised_Learning/5.1.png" /> 
+</p>
+
+<p align="center">Fig. 8 Images after preprocessing </p>
+
 ### 5.2 Results
 
 
