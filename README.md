@@ -144,7 +144,7 @@ The second unsupervised algorithm we applied was the Gaussian Mixture Model (GMM
 
 <p align="center">
 <img src="./Images/Unupervised_Learning/5.5a.png" width="350" height = "350"/> <img src="./Images/Unupervised_Learning/5.5b.png" width="350" height = "350"/> 
-<img src="./Images/Unupervised_Learning/5.5c.png" width="350" height = "350"/> </p> 
+<img src="./Images/Unupervised_Learning/5.5c.png" width="350" height = "350"/>  </p> 
 
 <p align="center">Fig. 12 Evaluation of GMM model by varying # of GMM componets </p>
 
@@ -153,7 +153,7 @@ From Fig 12, we can see that, if GMM component number increases, both Silhouette
 Hence, the parameters set for optimal GMM model are: 'full' type covariance with 50 PCA components and component number 35. The Silhouette score in this setting is ~0.07. We also ended up applying the GMM model with 15 components on the dataset since the BIC score was so small but that did not give us a very good result which will be elaborated in the “Results” section.
 
 <p align="center">
-<img src="./Images/Unupervised_Learning/5.6a.png" width="400" height = "400" />  <img src="./Images/Unupervised_Learning/5.6b.png" width="400" height = "400" /> 
+<img src="./Images/Unupervised_Learning/5.6a.png" width="350" height = "350" />  <img src="./Images/Unupervised_Learning/5.6b.png" width="350" height = "4350" /> </p> 
 
 <p align="center">Fig. 13 Evaluation of GMM model by varying # of PCA components </p>
 
