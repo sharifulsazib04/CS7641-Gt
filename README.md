@@ -233,6 +233,22 @@ In unsupervised learning, we implemented both KMeans and GMM models. The scores 
 
 7. https://scikit-learn.org/stable/auto_examples/mixture/plot_gmm_selection.html?fbclid=IwAR1IKGRPcG4hqPokKCyE3SS_nWZdEYpO1DG6XyGA-XOYccMZJyxzFTHuHYE
 
+8. CNN Explanation Page on Traffic Image Classification
+
+  https://medium.com/@techreigns/traffic-signs-classification-with-a-convolutional-neural-network-75911a1904
+  
+9. Reference to another take on the project
+
+   https://github.com/mohamedameen93/German-Traffic-Sign-Classification-Using-TensorFlow
+   
+10. Dataset preprocessed:
+
+    https://d17h27t6h515a5.cloudfront.net/topher/2017/February/5898cd6f_traffic-signs-data/traffic-signs-data.zip
+
+11. TensorFlow Documentation:
+
+    https://www.tensorflow.org/tutorials/images/classification
+
 
 
 
