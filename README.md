@@ -143,8 +143,8 @@ We ended up choosing cluster number 43 again depending on the distortion score (
 The second unsupervised algorithm we applied was the Gaussian Mixture Model (GMM). Although it is a soft clustering technique, we ended up assigning each image to the component it had higher probability of belonging. We applied PCA with 50 components on the dataset alongside GMM. To determine the optimal number of GMM components and the covariance type, we calculated Bayesian Information Criterion (BIC) varying the number of components and for four types of covariances [5]. BIC is used to check the reduction in the log-likelihood of models. The lower the BIC value, the better the GMM model is. At the same time Silhouette score and DB index were calculated.
 
 <p align="center">
-<img src="./Images/Unupervised_Learning/5.5a.png" width="350" height = "350"/>  <img src="./Images/Unupervised_Learning/5.5b.png" width="350" height = "350"/> 
-</p> <img src="./Images/Unupervised_Learning/5.5c.png" width="350" height = "350"/>
+<img src="./Images/Unupervised_Learning/5.5a.png" width="350" height = "350"/> <img src="./Images/Unupervised_Learning/5.5b.png" width="350" height = "350"/> 
+<img src="./Images/Unupervised_Learning/5.5c.png" width="350" height = "350"/> </p> 
 
 <p align="center">Fig. 12 Evaluation of GMM model by varying # of GMM componets </p>
 
@@ -153,7 +153,7 @@ From Fig 12, we can see that, if GMM component number increases, both Silhouette
 Hence, the parameters set for optimal GMM model are: 'full' type covariance with 50 PCA components and component number 35. The Silhouette score in this setting is ~0.07. We also ended up applying the GMM model with 15 components on the dataset since the BIC score was so small but that did not give us a very good result which will be elaborated in the “Results” section.
 
 <p align="center">
-<img src="./Images/Unupervised_Learning/5.6a.png" />  <img src="./Images/Unupervised_Learning/5.6b.png" /> 
+<img src="./Images/Unupervised_Learning/5.6a.png" width="400" height = "400" />  <img src="./Images/Unupervised_Learning/5.6b.png" width="400" height = "400" /> 
 
 <p align="center">Fig. 13 Evaluation of GMM model by varying # of PCA components </p>
 
