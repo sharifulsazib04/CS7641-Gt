@@ -99,7 +99,7 @@ We applied two unsupervised learning models to group similar images. The first o
 Images were preprocessed before passing through the models. The images used here have very low resolution, often dark, tilted, blurry and their sizes do not match as well. Each pixel of an image is cosidered as its feature. Images were first resized to 32 by 32 pixels, this way their sizes and feature space became equal. Afterwards, Contrast-limited adaptive histogram equalization (CLAHE) [Ref 2,3] was used to increase the contrast of the images. Finally, the images were cropped to make them more centered and to reduce the effect of the background. However, the cropping dimensions were constant for all images although not all images were captured from the same distance, Hence, images which were too zoomed out, were not cropped properly and sometimes ended up in a different cluster than it was meant to be in.
 
 <p align="center">
-<img src="./Images/Unsupervised_Learning/5.1.PNG" /> 
+<img src="./Images/Unupervised_Learning/5.1.PNG" /> 
 </p>
 
 <p align="center">Fig. 8 Images after preprocessing </p>
