@@ -88,7 +88,7 @@ Finally, we have made a GUI to facilitate image classification testing. In this 
 
 ## 5. Unsupervised Learning
 
-We used only the “Test” images (total 12,620 images) for the unsupervised part of the project since those do not have any label. We used unsupervised learning models to cluster similar images i.e. same traffic signs. Unsupervised approach to this problem is expected to yield very low accuracy [Ref 1]. Hence, this part of the project will mainly be used as a source of providing us more insight about the dataset and the results could be used in supervised learning and classification in the future.
+We used only the “Test" images (total 12,620 images) for the unsupervised part of the project since those do not have any label. We used unsupervised learning models to cluster similar images i.e. same traffic signs. Unsupervised approach to this problem is expected to yield very low accuracy [Ref 1]. Hence, this part of the project will mainly be used as a source of providing us more insight about the dataset and the results could be used in supervised learning and classification in the future.
 
 ### 5.1 Methods and Analysis
 
@@ -108,9 +108,9 @@ The figure above shows how the images look after preprocessing. Please note that
 
 #### 5.1.2 KMeans
 
-KMeans was first applied to the set of test images. However, in order to do that, the optimal number of clusters need to be chosen which can be done by implementing elbow method as well as measuring the Silhouette Score. Silhouette score measures the average similarity of the objects within a cluster and their distance to the other objects in the other clusters [4]. The values stays in -1 to 1 range and higher values are better while values = 0 indicate overlapping between clusters. 
+KMeans was first applied to the set of test images. However, in order to do that, the optimal number of clusters need to be chosen which can be done by implementing elbow method as well as measuring the Silhouette Score. Silhouette score measures the average similarity of the objects within a cluster and their distance to the other objects in the other clusters [4]. The values stays in -1 to 1 range and higher values are better while values = 0 indicate overlapping between clusters.
 
-Elbow method was implemented where KMeans algorithm was applied to the image-set varying the number of clusters, k. At the same time Silhouette score was being measure
+Elbow method was implemented where KMeans algorithm was applied to the image-set varying the number of clusters, k. At the same time Silhouette score was being measured.
 
 <p align="center">
 <img src="./Images/Unupervised_Learning/5.2a.png" width="400" height = "400" /> <img src="./Images/Unupervised_Learning/5.2b.png"  width="400" height = "400"/>
@@ -134,8 +134,30 @@ We then decided to apply PCA to reduce the number of the features and also to se
 
 <p align="center">Fig. 11 Evaluation of KMeans model varying number of PCA components </p>
 
-The elbow method was once again applied to the PCA implemented image-set. The plot in fig 5.4 shows that the optimal number of clusters lies near 40-50 range. On the other hand, the Silhouette score and DB index both keep getting better as # of clusters increases. We have tried applied KMeans in the dataset with both 43 and 90 clusters. It is seen that as as cluster number increases, unnecessary clustering also increases. This will be elaborated more in the results section.
+The elbow method was once again applied to the PCA implemented image-set. The plot in fig 11 shows that the optimal number of clusters lies near 40-50 range. On the other hand, the Silhouette score and DB index both keep getting better as # of clusters increases. We have tried applied KMeans in the dataset with both 43 and 90 clusters. It is seen that as as cluster number increases, unnecessary clustering also increases. This will be elaborated more in the results section.
+
 We ended up choosing cluster number 43 again depending on the distortion score (1st plot of fig 5.4). Hence the final parameters of this model are: # of clusters = 43 and # of PCA components = 50. Notice that, Although, after applying PCA, the Silhouette score increases from 0.06 to 0.1, it is still very low. A major reason for that is KMeans mostly try to do circular clustering and it assumes similar number of elements in each cluster. From Fig. 2 in section 2 we can see that number of images in each class widely varies, which is a reason for poor clustering due to KMeans, even after applying PCA.
+
+#### 5.1.2 GMM
+
+The second unsupervised algorithm we applied was the Gaussian Mixture Model (GMM). Although it is a soft clustering technique, we ended up assigning each image to the component it had higher probability of belonging. We applied PCA with 50 components on the dataset alongside GMM. To determine the optimal number of GMM components and the covariance type, we calculated Bayesian Information Criterion (BIC) varying the number of components and for four types of covariances [5]. BIC is used to check the reduction in the log-likelihood of models. The lower the BIC value, the better the GMM model is. At the same time Silhouette score and DB index were calculated.
+
+<p align="center">
+<img src="./Images/Unupervised_Learning/5.5a.png" width="350" height = "350"/>  <img src="./Images/Unupervised_Learning/5.5b.png" width="350" height = "350"/> 
+</p> <img src="./Images/Unupervised_Learning/5.5c.png" width="350" height = "350"/>
+
+<p align="center">Fig. 12 Evaluation of GMM model by varying # of GMM componets </p>
+
+From Fig 12, we can see that, if GMM component number increases, both Silhouette and DB scores seem to get better (higher for Silhouette score and lower for DB index). In case of DB index, it seems ‘Spherical’ type covariance is lowest (best) until 55 clusters. However, BIC scores were always the highest (worst) for ‘Spherical’ type covariance (Fig 5.5). On the other hand, BIC score is the lowest (best) for 'full' type covariance until 55 clusters. Silhouette score is also the highest (best) for 'full' type covariance for # of components = 35 and beyond. Therefore, a cluster number in the range of 35 to 55 should give better result. We can also see from Fig 5.5, around 35 clusters, the DB index for both ‘Spherical’ and ‘full’ type covariances become similar and not that high.
+
+Hence, the parameters set for optimal GMM model are: 'full' type covariance with 50 PCA components and component number 35. The Silhouette score in this setting is ~0.07. We also ended up applying the GMM model with 15 components on the dataset since the BIC score was so small but that did not give us a very good result which will be elaborated in the “Results” section.
+
+<p align="center">
+<img src="./Images/Unupervised_Learning/5.6a.png" />  <img src="./Images/Unupervised_Learning/5.6b.png" /> 
+
+<p align="center">Fig. 13 Evaluation of GMM model by varying # of PCA components </p>
+
+To confirm that the PCA comp was good, at cluster number 35 and 'full' type covariance, the scores were evaluated again by changing the # of PCA components. Fig 13 shows that lower number of PCA components (50 used here) gives better scores. The method was run on the dataset for higher number of PCA components (500) as well, and from inspection, it did not improve the result. Hence for efficiency, lower number of PCA components (50) would be a wise choice.
 
 ### 5.2 Results
 
