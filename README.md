@@ -235,7 +235,7 @@ In unsupervised learning, we implemented both KMeans and GMM models. The scores 
 
 8. CNN Explanation Page on Traffic Image Classification
 
-  https://medium.com/@techreigns/traffic-signs-classification-with-a-convolutional-neural-network-75911a1904
+   https://medium.com/@techreigns/traffic-signs-classification-with-a-convolutional-neural-network-75911a1904
   
 9. Reference to another take on the project
 
