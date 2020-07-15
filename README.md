@@ -170,7 +170,9 @@ The link to the KMeans applied result (43 clusters with PCA) is as follows:
 Some of the signs were clustered pretty well while others were not. Moat of the signs that are clustered successfully have only a few significant features (signs having only two colors), less details.
 
 <p align="center">
-<img src="./Images/Unupervised_Learning/5.7.png" /> 
+<img src="./Images/Unupervised_Learning/5.7a.png" /> <img src="./Images/Unupervised_Learning/5.7b.png" /> <img src="./Images/Unupervised_Learning/5.7c.png" />
+  <img src="./Images/Unupervised_Learning/5.7d.png" /> <img src="./Images/Unupervised_Learning/5.7e.png" /> <img src="./Images/Unupervised_Learning/5.7f.png" />
+  <img src="./Images/Unupervised_Learning/5.7g.png" />
 </p>
 
 <p align="center">Fig. 14 Example of good clustering using KMeans </p>
