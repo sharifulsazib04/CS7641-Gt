@@ -2,7 +2,7 @@
 ### Project Group 2
 #### Nujhat Tasneem, Mohammad Adnaan, Daniel P Neelappa, Md. Shariful Islam
 
-#### [Video Link](https://www.youtube.com/watch?v=kOIKduAOD5k)
+#### [Video Link](https://gtvault-my.sharepoint.com/:v:/g/personal/mislam62_gatech_edu/Ea78KmidhkdIkv8qNC3L-5YBoasuRmR0yNyNvzLr65sZ1A?e=nQpuaj)
 
 ## 1. Introduction
 
