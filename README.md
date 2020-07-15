@@ -27,13 +27,11 @@ As shown in the figures 24, the dataset provided for us have a relatively simila
 
 <p align="center">Fig. 2 Distribution of training, test and validation datasets </p>
 
-## 3. Data Processing
-
-## 4.Supervised Learning
+## 3.Supervised Learning
 
 For our project, we used tensorflow to implement deep learning models to perform image classification in Google Colab. Convolutional Neural Networks (CNN's) are a popular method to perform image classification and can achieve high accuracy for supervised learning. We implemented both a vanilla neural network, single layer CNN, and double layer CNN for this project. Lastly, we wanted to see how susceptible our model was for changes in the images. For this reason, we added noise to our testing set to examine the models susscesability to changes in the image quality.
 
-### 4.1 Vanilla Fully Connected Neural Network
+### 3.1 Vanilla Fully Connected Neural Network
 
 Below is an implementation of a fully connected neural network. The image which is 32px by 32px is flattened into an array of 1024 values. The network architecture consists of two hidden layers with 512 and 256 nodes each with a relu activation. Since there are 43 class labels and we begin with 1024 values in an image, we need to reduce the dimensionality from 1024 to 43. We decided to halve the number of layer nodes as an arbitrary way to reduce dimensionality. If we had additional time, we could expand the hidden layers of the network to a large number and slowly reduce the dimensionality as long as the accuracy isn't significantly affected. With our current implementation, we were able to achieve 93% in-sample accuracy and a 78% accuracy for out of sample testing.
 
@@ -51,7 +49,7 @@ We also experimented with a single fully connected hidden layer with 512 nodes a
 
 <p align="center">Fig. 4 Accuracy and loss plots of hidden layer</p>
 
-### 4.2 Convolutional Neural Networks (CNN's)
+### 3.2 Convolutional Neural Networks (CNN's)
 
 CNN's differ from fully connected neural networks because we do not flatten the image into an array like in a fully connected neural network. CNN's have kernels which are filters that slide over the image capturing features for distinguishing labels. The last layer of a CNN network is a fully connected layer for selecting a given label.
 
@@ -65,7 +63,7 @@ Both architectures performed very well at generalizing the dataset. The single C
 
 <p align="center">Fig. 5 Accuracy and loss plots of single and double layer CNN </p>
 
-### 4.3 Noise Addition
+### 3.3 Noise Addition
 
 Below shows a series of photos with a percentage of noise added to each. 100% noise is an value added to the normalized grayscale image from 0 to 1. A noise percentage is mupltiplied to the random value to scale the max value down from the original 1. We used our highest accuracy model which was the double layer CNN architecture.
 
@@ -77,7 +75,7 @@ The photos below show the accuracy and the visual depiction of several levels of
 
 <p align="center">Fig. 6 Photo with noise </p>
 
-### 4.4 Graphical User Interface (GUI)
+### 3.4 Graphical User Interface (GUI)
 Finally, we have made a GUI to facilitate image classification testing. In this GUI we can choose a particular image from test set and in the backend the trained supervised model will run and show the class of image that we have selected.
 
 <p align="center">
@@ -86,15 +84,15 @@ Finally, we have made a GUI to facilitate image classification testing. In this 
 
 <p align="center">Fig. 7 GUI for testing </p>
 
-## 5. Unsupervised Learning
+## 4. Unsupervised Learning
 
 We used only the “Test" images (total 12,620 images) for the unsupervised part of the project since those do not have any label. We used unsupervised learning models to cluster similar images i.e. same traffic signs. Unsupervised approach to this problem is expected to yield very low accuracy [3]. Hence, this part of the project will mainly be used as a source of providing us more insight about the dataset and the results could be used in supervised learning and classification in the future.
 
-### 5.1 Methods and Analysis
+### 4.1 Methods and Analysis
 
 We applied two unsupervised learning models to group similar images. The first one was KMeans clustering technique which assumes circular clustering of data. The second one is known as Gaussian Mixture Models (GMM) that assumes the entire dataset is a linear combination of components modeled as normal distribution. Principal component analysis (PCA) is also utilized for both algorithms to reduce the number of features of the images. Finally, the clustering models are evaluated using commonly known scores or metrics. Python scikit-learn package was used mostly to implement unsupervised learning and scikit-image package was used for image preprocessing.
 
-#### 5.1.1 Image Preprocessing
+#### 4.1.1 Image Preprocessing
 
 Images were preprocessed before passing through the models. The images used here have very low resolution, often dark, tilted, blurry and their sizes do not match as well. Each pixel of an image is cosidered as its feature. Images were first resized to 32 by 32 pixels, this way their sizes and feature space became equal. Afterwards, Contrast-limited adaptive histogram equalization (CLAHE) [4,5] was used to increase the contrast of the images. Finally, the images were cropped to make them more centered and to reduce the effect of the background. However, the cropping dimensions were constant for all images although not all images were captured from the same distance, Hence, images which were too zoomed out, were not cropped properly and sometimes ended up in a different cluster than it was meant to be in.
 
@@ -106,7 +104,7 @@ Images were preprocessed before passing through the models. The images used here
 
 The figure above shows how the images look after preprocessing. Please note that the darkness, tild and blur of the images were reduced.
 
-#### 5.1.2 KMeans
+#### 4.1.2 KMeans
 
 KMeans was first applied to the set of test images. However, in order to do that, the optimal number of clusters need to be chosen which can be done by implementing elbow method as well as measuring the Silhouette Score. Silhouette score measures the average similarity of the objects within a cluster and their distance to the other objects in the other clusters [6]. The values stays in -1 to 1 range and higher values are better while values = 0 indicate overlapping between clusters.
 
@@ -138,7 +136,7 @@ The elbow method was once again applied to the PCA implemented image-set. The pl
 
 We ended up choosing cluster number 43 again depending on the distortion score (1st plot of fig 11). Hence the final parameters of this model are: # of clusters = 43 and # of PCA components = 50. Notice that, Although, after applying PCA, the Silhouette score increases from 0.06 to 0.1, it is still very low. A major reason for that is KMeans mostly try to do circular clustering and it assumes similar number of elements in each cluster. From Fig. 2 in section 2 we can see that number of images in each class widely varies, which is a reason for poor clustering due to KMeans, even after applying PCA.
 
-#### 5.1.2 GMM
+#### 4.1.3 GMM
 
 The second unsupervised algorithm we applied was the Gaussian Mixture Model (GMM). Although it is a soft clustering technique, we ended up assigning each image to the component it had higher probability of belonging. We applied PCA with 50 components on the dataset alongside GMM. To determine the optimal number of GMM components and the covariance type, we calculated Bayesian Information Criterion (BIC) varying the number of components and for four types of covariances [7]. BIC is used to check the reduction in the log-likelihood of models. The lower the BIC value, the better the GMM model is. At the same time Silhouette score and DB index were calculated.
 
@@ -159,9 +157,9 @@ Hence, the parameters set for optimal GMM model are: 'full' type covariance with
 
 To confirm that the PCA comp was good, at cluster number 35 and 'full' type covariance, the scores were evaluated again by changing the # of PCA components. Fig 13 shows that lower number of PCA components (50 used here) gives better scores. The method was run on the dataset for higher number of PCA components (500) as well, and from inspection, it did not improve the result. Hence for efficiency, lower number of PCA components (50) would be a wise choice.
 
-### 5.2 Results
+### 4.2 Results
 
-#### 5.2.1 KMean Results
+#### 4.2.1 KMean Results
 
 The link to the KMeans applied result (43 clusters with PCA) is as follows:
 
@@ -200,7 +198,7 @@ Fig 15 shows even if some signs were not perfectly clustered, they had a similar
 
 Some signs like the ‘Yield’ sign, ‘Priority Road’ Sign were clustered successfully but instead of one, these were divided into 2-3 clusters. We applied the same model with 26 clusters instead of 43 and this unnecessary clustering problem was reduced. However, some of the signs were erroneously clustered at 26 clusters which were successfully clustered at 43 clusters. This can explain the contradictory result in Fig. 10
 
-#### 5.2.1 GMM Results
+#### 4.2.1 GMM Results
 
 The link to the GMM applied result (35 components with PCA) is as follows:
 
@@ -208,13 +206,13 @@ The link to the GMM applied result (35 components with PCA) is as follows:
 
 The result of GMM modeling is pretty similar to the KMeans model. The Silhouette score is also very small in this case.
 
-### 5.3 Discussion
+### 4.3 Discussion
 
 Scores of KMeans and GMM model applied on the “Test” images are not that good, The values are greater than 0 but very small indicating overlapping among clusters which is evident from the results. PCA seemed to improve their performance but not by much. However, PCA largely reduces the number of required features increasing the efficiency. For both cases, the Silhouette score and DB index both seem to get better as number of clusters increases, however this also leads to unnecessary clustering. This is evident in the contradictory trend of distortion and BIC score with # of classes for KMeans and GMM respectively. Camera angle and position, brightness of image, background – these seemed to have effect the clustering and many images are clustered according to these traits. However, many simple signs with less detail (‘Stop’, ‘Do not enter’, ‘Yield’, ‘Priority Road’, Blue and white signs etc) are clustered successfully although there overlaps with other clusters. Major reasons of the unsupervised clustering techniques not working are the low resolution of the images (since each pixel is considered a feature), unequal size of images (hence possible data loss while resizing all the images) and unequal distribution of images among the classes etc.
 
-## 6. Conclusion
+## 5. Conclusion
 
-## 7. References
+## 6. References
 
 1. J. Stallkamp, M. Schlipsing, J. Salmen, and C. Igel. The German Traffic Sign Recognition Benchmark: A multi-class classification competition. In Proceedings of the IEEE International Joint Conference on Neural Networks, pages 1453–1460. 2011 
 
