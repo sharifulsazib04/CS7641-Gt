@@ -165,7 +165,7 @@ To confirm that the PCA comp was good, at cluster number 35 and 'full' type cova
 
 The link to the KMeans applied result (43 clusters with PCA) is as follows:
 
-#### [Results](https://gtvault-my.sharepoint.com/:f:/g/personal/ntasneem3_gatech_edu/EpqAuUOQdyNOkM4IkETvlDMBCvGiw4uuyabVzoy8oehb2A?e=ZIoOcs)
+#### [Kmean Results](https://gtvault-my.sharepoint.com/:f:/g/personal/ntasneem3_gatech_edu/EpqAuUOQdyNOkM4IkETvlDMBCvGiw4uuyabVzoy8oehb2A?e=ZIoOcs)
 
 Some of the signs were clustered pretty well while others were not. Moat of the signs that are clustered successfully have only a few significant features (signs having only two colors), less details.
 
@@ -177,6 +177,40 @@ Some of the signs were clustered pretty well while others were not. Moat of the 
 
 <p align="center">Fig. 14 Example of good clustering using KMeans </p>
 
+<p align="center">
+<img src="./Images/Unupervised_Learning/5.8a.PNG" /> <img src="./Images/Unupervised_Learning/5.8b.PNG" /> <img src="./Images/Unupervised_Learning/5.8c.PNG" />
+  <img src="./Images/Unupervised_Learning/5.8d.PNG" /> <img src="./Images/Unupervised_Learning/5.8e.PNG" /> 
+</p>
+
+<p align="center">Fig. 15 Example of moderate clustering using KMeans. In the 1st plot triangular signs are clustered together, 2nd plot shows “white circles with black slashes” are clustered together, 3rd plot shows all vehicles’ image are clustered together, 4th plot shows many blue and white signs are clustered together. 5th one shows numbers are clustered together </p>
+
+<p align="center">
+<img src="./Images/Unupervised_Learning/5.9a.PNG" /> <img src="./Images/Unupervised_Learning/5.9b.PNG" /> 
+</p>
+
+<p align="center">Fig. 16 Example of bad clustering using KMeans </p>
+
+Fig 15 shows even if some signs were not perfectly clustered, they had a similar pattern. The last plot if Fig 5.9 just shows bad clustering while the 1st one has a subtle pattern. Although the signs do not match in the first one, most of these signs are zoomed out and circular in shape and have been clustered together. This leads to the assumption that camera angle, position, zooming, brightness and color of image, background plays major part in clustering of this particular image-set even after preprocessing the images. The following figure (Fig 5.10) shows that the visually similar “Construction Sign” was successfully clustered while the darker or visually different “Construction sign” was placed in another cluster erroneously.
+
+<p align="center">
+<img src="./Images/Unupervised_Learning/5.10a.PNG" /> <img src="./Images/Unupervised_Learning/5.10b.PNG" /> 
+</p>
+
+<p align="center">Fig. 17 ‘Construction Sign” Clustering </p>
+
+Some signs like the ‘Yield’ sign, ‘Priority Road’ Sign were clustered successfully but instead of one, these were divided into 2-3 clusters. We applied the same model with 26 clusters instead of 43 and this unnecessary clustering problem was reduced. However, some of the signs were erroneously clustered at 26 clusters which were successfully clustered at 43 clusters. This can explain the contradictory result in Fig. 10
+
+#### 5.2.1 GMM Results
+
+The link to the GMM applied result (35 components with PCA) is as follows:
+
+#### [GMM Results](https://gtvault-my.sharepoint.com/:f:/g/personal/ntasneem3_gatech_edu/EippTfkRbutMrobxAm4_o_8BT6LUhNJZ624bcqruazUAIQ?e=tFDRB7)
+
+The result of GMM modeling is pretty similar to the KMeans model. The Silhouette score is also very small in this case.
+
+### 5.3 Discussion
+
+Scores of KMeans and GMM model applied on the “Test” images are not that good, The values are greater than 0 but very small indicating overlapping among clusters which is evident from the results. PCA seemed to improve their performance but not by much. However, PCA largely reduces the number of required features increasing the efficiency. For both cases, the Silhouette score and DB index both seem to get better as number of clusters increases, however this also leads to unnecessary clustering. This is evident in the contradictory trend of distortion and BIC score with # of classes for KMeans and GMM respectively. Camera angle and position, brightness of image, background – these seemed to have effect the clustering and many images are clustered according to these traits. However, many simple signs with less detail (‘Stop’, ‘Do not enter’, ‘Yield’, ‘Priority Road’, Blue and white signs etc) are clustered successfully although there overlaps with other clusters. Major reasons of the unsupervised clustering techniques not working are the low resolution of the images (since each pixel is considered a feature), unequal size of images (hence possible data loss while resizing all the images) and unequal distribution of images among the classes etc.
 
 ## 6. Conclusion
 
