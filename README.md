@@ -198,7 +198,7 @@ Fig 15 shows even if some signs were not perfectly clustered, they had a similar
 
 Some signs like the ‘Yield’ sign, ‘Priority Road’ Sign were clustered successfully but instead of one, these were divided into 2-3 clusters. We applied the same model with 26 clusters instead of 43 and this unnecessary clustering problem was reduced. However, some of the signs were erroneously clustered at 26 clusters which were successfully clustered at 43 clusters. This can explain the contradictory result in Fig. 10
 
-#### 4.2.1 GMM Results
+#### 4.2.2 GMM Results
 
 The link to the GMM applied result (35 components with PCA) is as follows:
 
