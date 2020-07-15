@@ -78,8 +78,13 @@ The photos below show the accuracy and the visual depiction of several levels of
 <p align="center">Fig. 6 Photo with noise </p>
 
 ### 4.4 Graphical User Interface (GUI)
-Finally, we have made a GUI to 
+Finally, we have made a GUI to facilitate image classification testing. In this GUI we can choose a particular image from test set and in the backend the trained supervised model will run and show the class of image that we have selected.
 
+<p align="center">
+<img src="./Images/Supervised_Learning/gui1.JPG" width="400" /> <img src="./Images/Supervised_Learning/gui2.JPG"  width="400" /> 
+</p>
+
+<p align="center">Fig. 7 GUI for testing </p>
 
 ## 5. Unsupervised Learning
 ### 5.1 Methods 
