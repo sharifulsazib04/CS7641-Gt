@@ -170,9 +170,9 @@ The link to the KMeans applied result (43 clusters with PCA) is as follows:
 Some of the signs were clustered pretty well while others were not. Moat of the signs that are clustered successfully have only a few significant features (signs having only two colors), less details.
 
 <p align="center">
-<img src="./Images/Unupervised_Learning/5.7a.png" /> <img src="./Images/Unupervised_Learning/5.7b.png" /> <img src="./Images/Unupervised_Learning/5.7c.png" />
-  <img src="./Images/Unupervised_Learning/5.7d.png" /> <img src="./Images/Unupervised_Learning/5.7e.png" /> <img src="./Images/Unupervised_Learning/5.7f.png" />
-  <img src="./Images/Unupervised_Learning/5.7g.png" />
+<img src="./Images/Unupervised_Learning/5.7a.PNG" /> <img src="./Images/Unupervised_Learning/5.7b.PNG" /> <img src="./Images/Unupervised_Learning/5.7c.PNG" />
+  <img src="./Images/Unupervised_Learning/5.7d.PNG" /> <img src="./Images/Unupervised_Learning/5.7e.PNG" /> <img src="./Images/Unupervised_Learning/5.7f.PNG" />
+  <img src="./Images/Unupervised_Learning/5.7g.PNG" />
 </p>
 
 <p align="center">Fig. 14 Example of good clustering using KMeans </p>
@@ -183,6 +183,7 @@ Some of the signs were clustered pretty well while others were not. Moat of the 
 ## 7. References
 
 1. J. Stallkamp, M. Schlipsing, J. Salmen, and C. Igel. The German Traffic Sign Recognition Benchmark: A multi-class classification competition. In Proceedings of the IEEE International Joint Conference on Neural Networks, pages 1453–1460. 2011 
+
 2. O'Shea, Keiron, and Ryan Nash. "An introduction to convolutional neural networks." arXiv preprint arXiv:1511.08458 (2015).
 
 
