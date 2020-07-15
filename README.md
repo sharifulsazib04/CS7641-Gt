@@ -88,7 +88,7 @@ Finally, we have made a GUI to facilitate image classification testing. In this 
 
 ## 5. Unsupervised Learning
 
-We used only the “Test" images (total 12,620 images) for the unsupervised part of the project since those do not have any label. We used unsupervised learning models to cluster similar images i.e. same traffic signs. Unsupervised approach to this problem is expected to yield very low accuracy [Ref 1]. Hence, this part of the project will mainly be used as a source of providing us more insight about the dataset and the results could be used in supervised learning and classification in the future.
+We used only the “Test" images (total 12,620 images) for the unsupervised part of the project since those do not have any label. We used unsupervised learning models to cluster similar images i.e. same traffic signs. Unsupervised approach to this problem is expected to yield very low accuracy [3]. Hence, this part of the project will mainly be used as a source of providing us more insight about the dataset and the results could be used in supervised learning and classification in the future.
 
 ### 5.1 Methods and Analysis
 
@@ -96,7 +96,7 @@ We applied two unsupervised learning models to group similar images. The first o
 
 #### 5.1.1 Image Preprocessing
 
-Images were preprocessed before passing through the models. The images used here have very low resolution, often dark, tilted, blurry and their sizes do not match as well. Each pixel of an image is cosidered as its feature. Images were first resized to 32 by 32 pixels, this way their sizes and feature space became equal. Afterwards, Contrast-limited adaptive histogram equalization (CLAHE) [Ref 2,3] was used to increase the contrast of the images. Finally, the images were cropped to make them more centered and to reduce the effect of the background. However, the cropping dimensions were constant for all images although not all images were captured from the same distance, Hence, images which were too zoomed out, were not cropped properly and sometimes ended up in a different cluster than it was meant to be in.
+Images were preprocessed before passing through the models. The images used here have very low resolution, often dark, tilted, blurry and their sizes do not match as well. Each pixel of an image is cosidered as its feature. Images were first resized to 32 by 32 pixels, this way their sizes and feature space became equal. Afterwards, Contrast-limited adaptive histogram equalization (CLAHE) [4,5] was used to increase the contrast of the images. Finally, the images were cropped to make them more centered and to reduce the effect of the background. However, the cropping dimensions were constant for all images although not all images were captured from the same distance, Hence, images which were too zoomed out, were not cropped properly and sometimes ended up in a different cluster than it was meant to be in.
 
 <p align="center">
 <img src="./Images/Unupervised_Learning/5.1.PNG" /> 
@@ -108,7 +108,7 @@ The figure above shows how the images look after preprocessing. Please note that
 
 #### 5.1.2 KMeans
 
-KMeans was first applied to the set of test images. However, in order to do that, the optimal number of clusters need to be chosen which can be done by implementing elbow method as well as measuring the Silhouette Score. Silhouette score measures the average similarity of the objects within a cluster and their distance to the other objects in the other clusters [4]. The values stays in -1 to 1 range and higher values are better while values = 0 indicate overlapping between clusters.
+KMeans was first applied to the set of test images. However, in order to do that, the optimal number of clusters need to be chosen which can be done by implementing elbow method as well as measuring the Silhouette Score. Silhouette score measures the average similarity of the objects within a cluster and their distance to the other objects in the other clusters [6]. The values stays in -1 to 1 range and higher values are better while values = 0 indicate overlapping between clusters.
 
 Elbow method was implemented where KMeans algorithm was applied to the image-set varying the number of clusters, k. At the same time Silhouette score was being measured.
 
@@ -126,7 +126,7 @@ Fig. 9 shows the elbow i.e. optimal number of cluster ranges between 25 to 50 an
 
 <p align="center">Fig. 10 Evaluation of KMeans model varying number of PCA components </p>
 
-We then decided to apply PCA to reduce the number of the features and also to see if the silhouette score increases. KMeans algorithm was then run again varying the number of PCA components. One more evaluation technique named Davies–Bouldin (DB) index was used which is based on a ratio between “within-cluster” and “between-cluster” distances [4]. The lower the values of DB index, the better the clustering. It can be seen from the fig 5.3 that as the number of components increases, the clustering becomes worse (distortion increases, Silhouette score decreases and DB index increases). Hence a very low number of components, 50 was used. Since the number of features were reduced from 1728 to 50. Hence the efficiency of the model improved a lot since the time to run the code decreased by a large amount.
+We then decided to apply PCA to reduce the number of the features and also to see if the silhouette score increases. KMeans algorithm was then run again varying the number of PCA components. One more evaluation technique named Davies–Bouldin (DB) index was used which is based on a ratio between “within-cluster” and “between-cluster” distances [6]. The lower the values of DB index, the better the clustering. It can be seen from the fig 10 that as the number of components increases, the clustering becomes worse (distortion increases, Silhouette score decreases and DB index increases). Hence a very low number of components, 50 was used. Since the number of features were reduced from 1728 to 50. Hence the efficiency of the model improved a lot since the time to run the code decreased by a large amount.
 
 <p align="center">
 <img src="./Images/Unupervised_Learning/5.4a.png" width="400" height = "400"/>  <img src="./Images/Unupervised_Learning/5.4b.png" width="400" height = "400"/> 
@@ -136,11 +136,11 @@ We then decided to apply PCA to reduce the number of the features and also to se
 
 The elbow method was once again applied to the PCA implemented image-set. The plot in fig 11 shows that the optimal number of clusters lies near 40-50 range. On the other hand, the Silhouette score and DB index both keep getting better as # of clusters increases. We have tried applied KMeans in the dataset with both 43 and 90 clusters. It is seen that as as cluster number increases, unnecessary clustering also increases. This will be elaborated more in the results section.
 
-We ended up choosing cluster number 43 again depending on the distortion score (1st plot of fig 5.4). Hence the final parameters of this model are: # of clusters = 43 and # of PCA components = 50. Notice that, Although, after applying PCA, the Silhouette score increases from 0.06 to 0.1, it is still very low. A major reason for that is KMeans mostly try to do circular clustering and it assumes similar number of elements in each cluster. From Fig. 2 in section 2 we can see that number of images in each class widely varies, which is a reason for poor clustering due to KMeans, even after applying PCA.
+We ended up choosing cluster number 43 again depending on the distortion score (1st plot of fig 11). Hence the final parameters of this model are: # of clusters = 43 and # of PCA components = 50. Notice that, Although, after applying PCA, the Silhouette score increases from 0.06 to 0.1, it is still very low. A major reason for that is KMeans mostly try to do circular clustering and it assumes similar number of elements in each cluster. From Fig. 2 in section 2 we can see that number of images in each class widely varies, which is a reason for poor clustering due to KMeans, even after applying PCA.
 
 #### 5.1.2 GMM
 
-The second unsupervised algorithm we applied was the Gaussian Mixture Model (GMM). Although it is a soft clustering technique, we ended up assigning each image to the component it had higher probability of belonging. We applied PCA with 50 components on the dataset alongside GMM. To determine the optimal number of GMM components and the covariance type, we calculated Bayesian Information Criterion (BIC) varying the number of components and for four types of covariances [5]. BIC is used to check the reduction in the log-likelihood of models. The lower the BIC value, the better the GMM model is. At the same time Silhouette score and DB index were calculated.
+The second unsupervised algorithm we applied was the Gaussian Mixture Model (GMM). Although it is a soft clustering technique, we ended up assigning each image to the component it had higher probability of belonging. We applied PCA with 50 components on the dataset alongside GMM. To determine the optimal number of GMM components and the covariance type, we calculated Bayesian Information Criterion (BIC) varying the number of components and for four types of covariances [7]. BIC is used to check the reduction in the log-likelihood of models. The lower the BIC value, the better the GMM model is. At the same time Silhouette score and DB index were calculated.
 
 <p align="center">
 <img src="./Images/Unupervised_Learning/5.5a.png" width="350" height = "350"/> <img src="./Images/Unupervised_Learning/5.5b.png" width="350" height = "350"/> 
@@ -148,7 +148,7 @@ The second unsupervised algorithm we applied was the Gaussian Mixture Model (GMM
 
 <p align="center">Fig. 12 Evaluation of GMM model by varying # of GMM componets </p>
 
-From Fig 12, we can see that, if GMM component number increases, both Silhouette and DB scores seem to get better (higher for Silhouette score and lower for DB index). In case of DB index, it seems ‘Spherical’ type covariance is lowest (best) until 55 clusters. However, BIC scores were always the highest (worst) for ‘Spherical’ type covariance (Fig 5.5). On the other hand, BIC score is the lowest (best) for 'full' type covariance until 55 clusters. Silhouette score is also the highest (best) for 'full' type covariance for # of components = 35 and beyond. Therefore, a cluster number in the range of 35 to 55 should give better result. We can also see from Fig 5.5, around 35 clusters, the DB index for both ‘Spherical’ and ‘full’ type covariances become similar and not that high.
+From Fig 12, we can see that, if GMM component number increases, both Silhouette and DB scores seem to get better (higher for Silhouette score and lower for DB index). In case of DB index, it seems ‘Spherical’ type covariance is lowest (best) until 55 clusters. However, BIC scores were always the highest (worst) for ‘Spherical’ type covariance (Fig 12). On the other hand, BIC score is the lowest (best) for 'full' type covariance until 55 clusters. Silhouette score is also the highest (best) for 'full' type covariance for # of components = 35 and beyond. Therefore, a cluster number in the range of 35 to 55 should give better result. We can also see from Fig 12, around 35 clusters, the DB index for both ‘Spherical’ and ‘full’ type covariances become similar and not that high.
 
 Hence, the parameters set for optimal GMM model are: 'full' type covariance with 50 PCA components and component number 35. The Silhouette score in this setting is ~0.07. We also ended up applying the GMM model with 15 components on the dataset since the BIC score was so small but that did not give us a very good result which will be elaborated in the “Results” section.
 
@@ -190,7 +190,7 @@ Some of the signs were clustered pretty well while others were not. Moat of the 
 
 <p align="center">Fig. 16 Example of bad clustering using KMeans </p>
 
-Fig 15 shows even if some signs were not perfectly clustered, they had a similar pattern. The last plot if Fig 5.9 just shows bad clustering while the 1st one has a subtle pattern. Although the signs do not match in the first one, most of these signs are zoomed out and circular in shape and have been clustered together. This leads to the assumption that camera angle, position, zooming, brightness and color of image, background plays major part in clustering of this particular image-set even after preprocessing the images. The following figure (Fig 5.10) shows that the visually similar “Construction Sign” was successfully clustered while the darker or visually different “Construction sign” was placed in another cluster erroneously.
+Fig 15 shows even if some signs were not perfectly clustered, they had a similar pattern. The last plot if Fig 16 just shows bad clustering while the 1st one has a subtle pattern. Although the signs do not match in the first one, most of these signs are zoomed out and circular in shape and have been clustered together. This leads to the assumption that camera angle, position, zooming, brightness and color of image, background plays major part in clustering of this particular image-set even after preprocessing the images. The following figure (Fig 17) shows that the visually similar “Construction Sign” was successfully clustered while the darker or visually different “Construction sign” was placed in another cluster erroneously.
 
 <p align="center">
 <img src="./Images/Unupervised_Learning/5.10a.PNG" /> <img src="./Images/Unupervised_Learning/5.10b.PNG" /> 
@@ -218,7 +218,17 @@ Scores of KMeans and GMM model applied on the “Test” images are not that goo
 
 1. J. Stallkamp, M. Schlipsing, J. Salmen, and C. Igel. The German Traffic Sign Recognition Benchmark: A multi-class classification competition. In Proceedings of the IEEE International Joint Conference on Neural Networks, pages 1453–1460. 2011 
 
-2. O'Shea, Keiron, and Ryan Nash. "An introduction to convolutional neural networks." arXiv preprint arXiv:1511.08458 (2015).
+2. O'Shea, Keiron, and Ryan Nash. "An introduction to convolutional neural networks." arXiv preprint arXiv:1511.08458 (2015)
+
+3. Supriyanto, Catur, Ardytha Luthfiarta, and Junta Zeniarja. "An unsupervised approach for traffic sign recognition based on bag-of-visual-words." 2016 8th International Conference on Information Technology and Electrical Engineering (ICITEE). IEEE, 2016
+
+4. https://mc.ai/traffic-sign-recognition/
+
+5. https://en.wikipedia.org/wiki/Adaptive_histogram_equalization#Contrast_Limited_AHE
+
+6. https://gdcoder.com/silhouette-analysis-vs-elbow-method-vs-davies-bouldin-index-selecting-the-optimal-number-of-clusters-for-kmeans-clustering/
+
+7. https://scikit-learn.org/stable/auto_examples/mixture/plot_gmm_selection.html?fbclid=IwAR1IKGRPcG4hqPokKCyE3SS_nWZdEYpO1DG6XyGA-XOYccMZJyxzFTHuHYE
 
 
 
