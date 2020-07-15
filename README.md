@@ -104,6 +104,39 @@ Images were preprocessed before passing through the models. The images used here
 
 <p align="center">Fig. 8 Images after preprocessing </p>
 
+The figure above shows how the images look after preprocessing. Please note that the darkness, tild and blur of the images were reduced.
+
+#### 5.1.2 KMeans
+
+KMeans was first applied to the set of test images. However, in order to do that, the optimal number of clusters need to be chosen which can be done by implementing elbow method as well as measuring the Silhouette Score. Silhouette score measures the average similarity of the objects within a cluster and their distance to the other objects in the other clusters [4]. The values stays in -1 to 1 range and higher values are better while values = 0 indicate overlapping between clusters. 
+
+Elbow method was implemented where KMeans algorithm was applied to the image-set varying the number of clusters, k. At the same time Silhouette score was being measure
+
+<p align="center">
+<img src="./Images/Unupervised_Learning/5.2.PNG" /> 
+</p>
+
+<p align="center">Fig. 9 Elbow method (varying number of clusters) </p>
+
+Fig. 9 shows the elbow i.e. optimal number of cluster ranges between 25 to 50 and Silhouette score also peaks at around k ≈ 40. Hence, the optimal number of clusters was chosen at around 43 (which is also the actual number of classes). However, please notice that the Silhouette scores are very low, around ~0.06, which indicates that many clusters have overlap.
+
+<p align="center">
+<img src="./Images/Unupervised_Learning/5.3.PNG" /> 
+</p>
+
+<p align="center">Fig. 10 Evaluation of KMeans model varying number of PCA components </p>
+
+We then decided to apply PCA to reduce the number of the features and also to see if the silhouette score increases. KMeans algorithm was then run again varying the number of PCA components. One more evaluation technique named Davies–Bouldin (DB) index was used which is based on a ratio between “within-cluster” and “between-cluster” distances [4]. The lower the values of DB index, the better the clustering. It can be seen from the fig 5.3 that as the number of components increases, the clustering becomes worse (distortion increases, Silhouette score decreases and DB index increases). Hence a very low number of components, 50 was used. Since the number of features were reduced from 1728 to 50. Hence the efficiency of the model improved a lot since the time to run the code decreased by a large amount.
+
+<p align="center">
+<img src="./Images/Unupervised_Learning/5.3.PNG" /> 
+</p>
+
+<p align="center">Fig. 11 Evaluation of KMeans model varying number of PCA components </p>
+
+The elbow method was once again applied to the PCA implemented image-set. The plot in fig 5.4 shows that the optimal number of clusters lies near 40-50 range. On the other hand, the Silhouette score and DB index both keep getting better as # of clusters increases. We have tried applied KMeans in the dataset with both 43 and 90 clusters. It is seen that as as cluster number increases, unnecessary clustering also increases. This will be elaborated more in the results section.
+We ended up choosing cluster number 43 again depending on the distortion score (1st plot of fig 5.4). Hence the final parameters of this model are: # of clusters = 43 and # of PCA components = 50. Notice that, Although, after applying PCA, the Silhouette score increases from 0.06 to 0.1, it is still very low. A major reason for that is KMeans mostly try to do circular clustering and it assumes similar number of elements in each cluster. From Fig. 2 in section 2 we can see that number of images in each class widely varies, which is a reason for poor clustering due to KMeans, even after applying PCA.
+
 ### 5.2 Results
 
 
