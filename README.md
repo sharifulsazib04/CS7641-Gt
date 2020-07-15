@@ -77,6 +77,10 @@ The photos below show the accuracy and the visual depiction of several levels of
 
 <p align="center">Fig. 6 Photo with noise </p>
 
+### 4.4 Graphical User Interface (GUI)
+Finally, we have made a GUI to 
+
+
 ## 5. Unsupervised Learning
 ### 5.1 Methods 
 ### 5.2 Results
