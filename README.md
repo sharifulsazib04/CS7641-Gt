@@ -113,7 +113,7 @@ KMeans was first applied to the set of test images. However, in order to do that
 Elbow method was implemented where KMeans algorithm was applied to the image-set varying the number of clusters, k. At the same time Silhouette score was being measure
 
 <p align="center">
-<img src="./Images/Unupervised_Learning/5.2.PNG" /> 
+<img src="./Images/Unupervised_Learning/5.2a.png" /> <img src="./Images/Unupervised_Learning/5.2b.png" />
 </p>
 
 <p align="center">Fig. 9 Elbow method (varying number of clusters) </p>
@@ -121,7 +121,7 @@ Elbow method was implemented where KMeans algorithm was applied to the image-set
 Fig. 9 shows the elbow i.e. optimal number of cluster ranges between 25 to 50 and Silhouette score also peaks at around k ≈ 40. Hence, the optimal number of clusters was chosen at around 43 (which is also the actual number of classes). However, please notice that the Silhouette scores are very low, around ~0.06, which indicates that many clusters have overlap.
 
 <p align="center">
-<img src="./Images/Unupervised_Learning/5.3.PNG" /> 
+<img src="./Images/Unupervised_Learning/5.3a.png" />  <img src="./Images/Unupervised_Learning/5.3b.png" /> 
 </p>
 
 <p align="center">Fig. 10 Evaluation of KMeans model varying number of PCA components </p>
@@ -129,7 +129,7 @@ Fig. 9 shows the elbow i.e. optimal number of cluster ranges between 25 to 50 an
 We then decided to apply PCA to reduce the number of the features and also to see if the silhouette score increases. KMeans algorithm was then run again varying the number of PCA components. One more evaluation technique named Davies–Bouldin (DB) index was used which is based on a ratio between “within-cluster” and “between-cluster” distances [4]. The lower the values of DB index, the better the clustering. It can be seen from the fig 5.3 that as the number of components increases, the clustering becomes worse (distortion increases, Silhouette score decreases and DB index increases). Hence a very low number of components, 50 was used. Since the number of features were reduced from 1728 to 50. Hence the efficiency of the model improved a lot since the time to run the code decreased by a large amount.
 
 <p align="center">
-<img src="./Images/Unupervised_Learning/5.3.PNG" /> 
+<img src="./Images/Unupervised_Learning/5.4a.png" />  <img src="./Images/Unupervised_Learning/5.4b.png" /> 
 </p>
 
 <p align="center">Fig. 11 Evaluation of KMeans model varying number of PCA components </p>
